@@ -1,0 +1,663 @@
+html,
+body {
+  font-family: Avenir, 游ゴシック体, YuGothic, 游ゴシック Medium, Yu Gothic, sans-serif;
+  color: $text;
+  background-color: $background;
+  line-height: 2;
+}
+
+a {
+  color: $link;
+
+  &:hover {
+    color: $hover;
+  }
+
+  &.keyword {
+    text-decoration: none;
+    border-bottom: 1px dotted $border;
+    color: $text;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $text-header;
+  line-height: 1.5;
+
+  a {
+    color: $text-header;
+    text-decoration: none;
+
+    &:hover {
+      color: $hover;
+    }
+  }
+}
+
+/* ヘッダ（グローバルヘッダ）
+  グローバルヘッダの中はiframeですが、
+  #globalheader-container に背景色や文字色を指定することでiframeの中にも色が反映されます。
+*/
+#globalheader-container {
+  /*display: none;*/
+  background-color: $bg-light;
+  color: $text-light;
+}
+
+/* container */
+#container,
+#footer {
+  padding-left: 0px;
+  padding-right: 0px;
+  @media #{$mq-sm} {
+    width: 720px;
+    margin: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @media #{$mq-md} {
+    width: 940px;
+  }
+}
+
+/* 2カラムレイアウト */
+#content-inner {
+  padding-top: 2rem;
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media #{$mq-sm} {
+    flex-direction: row;
+    padding-top: 11rem;
+  }
+}
+
+#wrapper {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  @media #{$mq-sm} {
+    width: 480px;
+    margin: 0;
+  }
+  @media #{$mq-md} {
+    width: 600px;
+    margin: 0;
+  }
+}
+
+
+#box2 {
+  margin: 0 2rem;
+  @media #{$mq-sm} {
+    width: 160px;
+    margin: 0;
+  }
+  @media #{$mq-md} {
+    width: 200px;
+    margin: 0;
+  }
+}
+
+/* 下記のスタイルを適用するとテーマを1カラムレイアウトにできます。
+利用するにはコメントアウトを解除してください。
+（2カラムレイアウトの場合はコメントアウト全体が不要です）
+
+#content-inner {
+    flex-direction: column;
+    align-items: center;
+}
+#wrapper {
+    @media #{$mq-sm} {
+        width: 100%;
+    }
+    @media #{$mq-md} {
+        max-width: 720px;
+    }
+}
+#box2 {
+    width: 100%;
+    @media #{$mq-sm} {
+        width: 100%;
+    }
+    @media #{$mq-md} {
+        width: 100%;
+    }
+}
+
+#box2-inner {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    @media #{$mq-sm} {
+        margin-left: -20px;
+        flex-direction: row;
+    }
+    @media #{$mq-md} {
+        margin-left: -30px;
+    }
+}
+.hatena-module {
+    width: 100%;
+    @media #{$mq-sm} {
+        width: 33.3333%;
+    }
+    @media #{$mq-md} {
+        padding-left: 30px;
+    }
+}
+
+---- END 1カラム */
+
+/* ヘッダ */
+#blog-title {
+  margin: .5rem 1.5rem 1.5rem 1.5rem;
+  padding-top: .5rem;
+  text-align: center;
+  float: left;
+  overflow: hidden;
+  @media #{$mq-sm} {
+    text-align: left;
+    margin: 0;
+    position: absolute;
+    left: 2rem;
+  }
+}
+
+#title {
+  float: left;
+  margin: 1rem 1rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  @media #{$mq-md} {
+    font-size: 1rem;
+  }
+
+  a {
+    color: $text;
+  }
+}
+
+#blog-description {
+  float: left;
+  font-weight: normal;
+  font-size: 1rem;
+  border-left: solid black 1px;
+  padding-left: 1rem;
+  line-height: 1.5rem;
+  margin: 1rem 1rem 0 0;
+  text-align: left;
+}
+
+/* ヘッダ画像を設定したとき */
+.header-image-enable {
+  #blog-title {
+    margin: 0 0 2em;
+    position: relative;
+    left: 0;
+    float: none;
+    padding: 0;
+  }
+
+  #blog-title-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #blog-title-content {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+/* タイトル下HTML */
+#top-editarea {
+  float: left;
+
+  p {
+    border-left: solid black 1px;
+    padding-left: 1rem;
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+  }
+}
+
+/* パンくず（カテゴリー、記事ページで表示されます） */
+.breadcrumb {
+  font-size: .9rem;
+  display: none;
+}
+
+/* entry */
+.entry {
+  position: relative;
+  margin-bottom: 8rem;
+}
+
+.entry-header {
+  margin-bottom: 2rem;
+  position: relative;
+  @media #{$mq-sm} {
+    margin-bottom: 4rem;
+  }
+}
+
+.date {
+  margin-bottom: .25em;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+  @media #{$mq-sm} {
+    margin-bottom: .5em;
+  }
+
+  a {
+    color: $text;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.entry-title {
+  margin: 0 0 .25rem 0;
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  @media #{$mq-md} {
+    font-size: 2rem;
+    margin: 0 0 .5rem 0;
+  }
+}
+
+.categories {
+  margin: 0 0 1rem 0;
+  font-size: .75rem;
+
+  a {
+    text-decoration: none;
+    margin-right: .5em;
+    color: $text-light;
+  }
+
+  a:before {
+    content: "#";
+  }
+}
+
+/* 「編集する」ボタン */
+.entry-header-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  a {font-size:0;}
+  a:before {font-size: 1rem; content: "edit";}
+}
+
+/* 記事内の書式 */
+.entry-content {
+  img,
+  video {
+    max-width: 100vw;
+    width: 100vw;
+    position: relative;
+    display: block;
+    left: 50%;
+    margin: 1em 0 1em -50vw;
+    @media #{$mq-sm} {
+      max-width: 100%;
+      height: auto;
+      margin: 1em 0 1em 0;
+      left: 0;
+    }
+    /*
+    display: block;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+     */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 2rem 0 0.5em 0;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    @media #{$mq-md} {
+      font-size: 1.7rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    @media #{$mq-md} {
+      font-size: 1.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    @media #{$mq-md} {
+      font-size: 1.3rem;
+    }
+  }
+
+  h4 {
+    font-size: 1.1rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  h6 {
+    font-size: .9rem;
+  }
+
+  ul,
+  ol,
+  dd {
+    margin: 0 0 1em 1.5em;
+    padding: 0;
+
+    li {
+      ul, ol {
+        margin-bottom: 0;
+        list-style-type: none;
+        font-size: 0.75rem;
+        color: $text-light;
+      }
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-bottom: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    overflow: auto;
+    display: block;
+    font-size: .75rem;
+    @media #{$mq-md} {
+      font-size: .9rem;
+    }
+  }
+
+  table th,
+  table td {
+    border: 1px solid $border;
+    padding: 5px 10px;
+  }
+
+  table th {
+    background: $bg-light;
+  }
+
+  blockquote {
+    border-left: 1px solid $text;
+    margin: 0 0 10px 8px;
+    padding: 20px;
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  pre,
+  code {
+    color: #eaeaea;
+    font-family: 'Monaco', 'Consolas', 'Courier New', Courier, monospace, sans-serif;
+  }
+
+  pre {
+    background: $bg-code;
+    border: none;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    font-size: .75rem;
+    padding: 1.5rem;
+
+    & > code {
+      margin: 0;
+      padding: 0;
+      white-space: pre;
+      border: none;
+      background-color: transparent;
+      font-family: 'Monaco', 'Consolas', 'Courier New', Courier, monospace, sans-serif;
+    }
+  }
+
+  code {
+    font-size: 90%;
+    margin: 0 2px;
+    padding: 0px 5px;
+    background-color: $bg-light;
+    border-radius: 3px;
+  }
+
+  .synIdentifier {
+    color: #a2ffff;
+  }
+
+  .synType {
+    color: #fcff86;
+  }
+
+  .synConstant {
+    color: #ffa7a7;
+  }
+
+  .synSpecial {
+    color: #dbd2ff;
+  }
+
+  .synStatement {
+    color: #81ff9d;
+  }
+
+  .synComment {
+    color: #afafaf;
+  }
+
+  hr {
+    width: 5%;
+    border: 0;
+    border: none;
+    border-top: 1px solid $text;
+    margin: 2em auto;
+  }
+
+  .table-of-contents {
+    padding: 1.5em 1.5em 1.5em 3em;
+    margin: 1em 0;
+    border: 1px solid $border;
+    background-color: $bg-light;
+  }
+}
+
+/* 記事下 */
+.entry-footer {
+  .social-buttons {
+    margin-bottom: 1em;
+  }
+}
+
+.entry-footer-section {
+  color: $text-light;
+  font-size: .9rem;
+
+  a {
+    color: $text-light;
+  }
+}
+
+/* コメント */
+.comment-box {
+  margin: 1em 0;
+
+  .comment {
+    list-style: none;
+    margin: 0 0 40px 0;
+    padding: 0;
+    line-height: 1.7;
+    font-size: .75rem;
+    @media #{$mq-sm} {
+      font-size: .75rem;
+    }
+  }
+
+  .entry-comment {
+    padding: 24px 0 24px 60px;
+    border-bottom: 1px solid $border;
+    position: relative;
+
+    &:first-child {
+      border-top: 1px solid $border;
+    }
+  }
+
+  .read-more-comments {
+    padding: 10px 0;
+  }
+
+  .hatena-id-icon {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+  }
+}
+
+.comment-user-name {
+  margin: 0 0 .4em 0;
+  font-weight: bold;
+}
+
+.comment-content {
+  margin: 0 0 .4em 0;
+  word-wrap: break-word;
+  color: $text;
+  font-size: .75rem;
+
+  p {
+    margin: 0 0 .6em 0;
+  }
+}
+
+.comment-metadata {
+  color: $text-light;
+  margin: 0;
+  font-size: .75rem;
+
+  a {
+    color: $text-light;
+  }
+}
+
+.leave-comment-title {
+  padding: .6em 1em;
+  font-size: .75rem;
+  border: 1px solid $border;
+  color: $text;
+}
+
+/* Pager */
+
+.pager {
+  margin: 2em 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* About ページ */
+.page-about {
+  .entry-content {
+    dt {
+      font-weight: bold;
+      border-bottom: 1px solid $border;
+      margin-bottom: .5em;
+    }
+
+    dd {
+      margin-left: 0;
+      margin-bottom: 2em;
+    }
+  }
+}
+
+/* Archive */
+.archive-header-category {
+  border-left: 1px solid;
+  padding-left: 1rem;
+}
+
+.page-archive {
+  .archive-entry {
+    margin-bottom: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+
+  .entry-title {
+    margin: .3em auto;
+  }
+
+  .entry-thumb {
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    @media #{$mq-sm} {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  .entry-description {
+    margin: 0;
+    font-size: .75rem;
+    @media #{$mq-sm} {
+      font-size: .9rem;
+    }
+  }
+
+  .social-buttons {
+    display: block;
+    margin-top: .3em;
+  }
+}
+
+
+/* footer */
+#footer {
+  margin-top: 2em;
+  padding-bottom: 2rem;
+  text-align: center;
+  font-size: .75rem;
+  color: $text-light;
+
+  a {
+    color: $text-light;
+  }
+
+  p {
+    margin: .5em auto;
+  }
+}

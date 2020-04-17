@@ -1,0 +1,26 @@
+{
+  "name": "hatena-blog-theme-normcore",
+  "version": "2.0.0",
+  "description": "normcore for Hatena Blog theme",
+  "author": "Hatena Blog",
+  "license": "MIT",
+  "scripts": {
+    "prestart": "npm run build",
+    "start": "npm-run-all -p watch server",
+    "build": "npm-run-all scss scss-product autoprefixer",
+    "scss": "node-sass scss/normcore.scss build/normcore.css --output-style expanded --indent-width 4 --source-map build/",
+    "scss-product": "node-sass scss/normcore.scss build/normcore.min.css --output-style compressed --source-map build/",
+    "autoprefixer": "postcss --use autoprefixer -r build/normcore.css",
+    "server": "browser-sync start -c bs-config.js",
+    "watch": "chokidar \"scss/\" -c \"npm run build\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "browser-sync": "^2.18.13",
+    "chokidar-cli": "^1.2.0",
+    "node-sass": "^4.5.3",
+    "normalize.css": "^7.0.0",
+    "npm-run-all": "^4.1.1",
+    "postcss-cli": "^4.1.1"
+  }
+}

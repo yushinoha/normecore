@@ -1,0 +1,17 @@
+.hatena-module-recent-comments {
+  .recent-comments {
+    & > li {
+      margin-bottom: .5em;
+    }
+    .user-id {
+      display: block;
+    }
+    .hatena-id-icon{
+      display: none;
+    }
+    .recent-comment-time{
+      font-style: normal;
+      opacity: 100%;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+/* サイドバーモジュール */
+.hatena-module {
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  font-size: .75rem;
+  color: $text-light;
+  @media #{$mq-sm} {
+    font-size: .75rem;
+  }
+}
+
+.hatena-module-title {
+  margin-bottom: .5em;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+  color: $text;
+
+  a {
+    text-decoration: none;
+    color: $text;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.hatena-module-body {
+
+  a {
+    color: $text-light;
+  }
+
+  .authors-urllist {
+    .authors-user-icon {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+
+    span.authors-user-name {
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+  }
+
+  & > a {
+    display: inline-block;
+    color: $text-light;
+  }
+}
+
+/* urllist module */
+.hatena-urllist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding: 0;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    a {
+      font-size: .75rem;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .urllist-category-link {
+    font-size: .75rem;
+    padding: .1em .3em;
+  }
+
+  .urllist-date-link a {
+    color: $text-light;
+  }
+
+  .urllist-entry-body {
+    margin-top: .3em;
+  }
+
+  .archive-module-year {
+    line-height: 1.5rem;
+
+    .archive-module-button {
+      display: none;
+    }
+
+    .archive-module-month {
+      margin-left: 1rem;
+    }
+  }
+}

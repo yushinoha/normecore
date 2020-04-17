@@ -1,0 +1,25 @@
+@charset "utf-8";
+/*!
+  Theme: Normcore
+  Author: yushinoha
+  Responsive: yes
+  Description:
+    記事を引き立たせるシンプルなデザインテーマです。
+    ブログタイトルやサイドバーの主張を控えめにして、コンテンツファーストを目指しました。
+*/
+
+// import normalize
+@import "node_modules/normalize.css/normalize";
+
+// import variable
+@import "lib/_variable";
+
+// import core
+@import "lib/_core";
+
+
+@import "scss/lib/sidebar/comon";
+@import "scss/lib/sidebar/group";
+@import "scss/lib/sidebar/search";
+@import "scss/lib/sidebar/profile";
+@import "scss/lib/sidebar/comment";
