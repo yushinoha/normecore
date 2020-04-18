@@ -154,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
 #blog-title {
   margin: .5rem 1.5rem 1.5rem 1.5rem;
   padding-top: .5rem;
-  text-align: center;
+  text-align: left;
   float: left;
   overflow: hidden;
   @media #{$mq-sm} {
@@ -182,12 +182,18 @@ h1, h2, h3, h4, h5, h6 {
 #blog-description {
   float: left;
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 0.5rem;
   border-left: solid black 1px;
-  padding-left: 1rem;
-  line-height: 1.5rem;
+  padding-left: 1em;
+  line-height: .75rem;
   margin: 1rem 1rem 0 0;
   text-align: left;
+  @media #{$mq-sm} {
+    font-size: 1rem;
+    padding-left: 1rem;
+    line-height: 1.5rem;
+    margin: 1rem 1rem 0 0;
+  }
 }
 
 /* ヘッダ画像を設定したとき */
